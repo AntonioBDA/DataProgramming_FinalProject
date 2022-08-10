@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{% endblock %}</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+  <body>
+    <h1>Title</h1>
+    {% block content %}
+    {% endblock %}
+
+    <div id="chart"></div>
+    <script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Price'],
+          ['10/7/2022', 1.295165],
+          ['11/7/2022', 1.301489],
+          ['12/7/2022', 1.302786],
+          ['13/7/2022', 1.299232],
+          ['14/7/2022', 1.311285],
+          ['15/7/2022', 1.302701],
+          ['16/7/2022', 1.303812],
+          ['17/7/2022', 1.30203],
+          ['18/7/2022', 1.298174],
+          ['19/7/2022', 1.285576],
+          ['20/7/2022', 1.289586],
+          ['21/7/2022', 1.287772],
+          ['22/7/2022', 1.292125],
+          ['23/7/2022', 1.291757],
+          ['24/7/2022', 1.291436],
+          ['25/7/2022', 1.285891],
+          ['26/7/2022', 1.287003],
+          ['27/7/2022', 1.281687],
+          ['28/7/2022', 1.279855],
+          ['29/7/2022', 1.278481],
+          ['30/7/2022', 1.278712],
+          ['31/7/2022', 1.280807],
+          ['1/8/2022', 1.283613],
+          ['2/8/2022', 1.28805],
+          ['3/8/2022', 1.285269],
+          ['4/8/2022', 1.285389],
+          ['5/8/2022', 1.292516],
+          ['6/8/2022', 1.292737],
+          ['7/8/2022', 1.294038],
+          ['8/8/2022', 1.286573],
+          ['9/8/2022', 1.288109]
+        ]);
+
+        var options = {
+          title: 'Dollar CAD price vs USD Dollar',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    </script>
+  </body>
+</html>

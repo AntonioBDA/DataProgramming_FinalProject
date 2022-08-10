@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+    body {
+        background-color: #efefef;
+    }
+</style>
+  <body>
+    <h1 >Currencies</h1>
+
+    <div id="chart" style="center width: 1200px; height: 800px"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'CAD', 'EUR'],
+            ['10/7/2022', 1.295165, 0.982239],
+            ['11/7/2022', 1.301489, 0.996836],
+            ['12/7/2022', 1.302786, 0.996352],
+            ['13/7/2022', 1.299232, 0.995386],
+            ['14/7/2022', 1.311285, 0.998399],
+            ['15/7/2022', 1.302701, 0.991493],
+            ['16/7/2022', 1.303812, 0.991914],
+            ['17/7/2022', 1.30203, 0.992156],
+            ['18/7/2022', 1.298174, 0.985988],
+            ['19/7/2022', 1.285576, 0.976453],
+            ['20/7/2022', 1.289586, 0.982381],
+            ['21/7/2022', 1.287772, 0.978532],
+            ['22/7/2022', 1.292125, 0.979183],
+            ['23/7/2022', 1.291757, 0.979616],
+            ['24/7/2022', 1.291436, 0.979768],
+            ['25/7/2022', 1.285891, 0.978262],
+            ['26/7/2022', 1.287003, 0.987166],
+            ['27/7/2022', 1.281687, 0.979798],
+            ['28/7/2022', 1.279855, 0.980857],
+            ['29/7/2022', 1.278481, 0.977492],
+            ['30/7/2022', 1.278712, 0.978172],
+            ['31/7/2022', 1.280807, 0.978879],
+            ['1/8/2022', 1.283613, 0.975349],
+            ['2/8/2022', 1.28805, 0.983878],
+            ['3/8/2022', 1.285269, 0.98418],
+            ['4/8/2022', 1.285389, 0.975379],
+            ['5/8/2022', 1.292516, 0.980973],
+            ['6/8/2022', 1.292737, 0.981677],
+            ['7/8/2022', 1.294038, 0.98282],
+            ['8/8/2022', 1.286573, 0.981869],
+            ['9/8/2022', 1.288109, 0.979561],
+
+        ]);
+
+        var options = {
+          title: 'Dollar CAD and EUR vs USD Dollar',
+            legend: { position: 'bottom' },
+            trendlines: {
+                0: { type: 'linear', color: '#333', opacity: 1 },
+            }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </body>
+</html>
